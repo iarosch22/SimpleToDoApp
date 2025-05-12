@@ -16,9 +16,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.iarosch.simpletodoapp.R
 import com.iarosch.simpletodoapp.core.domain.model.Todo
 import com.iarosch.simpletodoapp.core.ui_kit.CreateTodoFloatingActionButton
 import com.iarosch.simpletodoapp.core.ui_kit.ToDoTopBar
@@ -38,7 +40,7 @@ internal fun HomeScreen(
         topBar = {
             ToDoTopBar(
                 modifier = Modifier.shadow(4.dp),
-                title = "To Do"
+                title = stringResource(R.string.todo_main_topbar_title)
             )
         },
         floatingActionButton = {
@@ -94,7 +96,7 @@ private fun HomeScreenEmpty(modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize()) {
         Text(
             modifier = Modifier.align(Alignment.Center),
-            text = "Any todo items",
+            text = stringResource(R.string.dont_have_any_todo_banner),
             color = MaterialTheme.colorScheme.primary,
             fontSize = 27.sp,
             textAlign = TextAlign.Center,

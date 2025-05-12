@@ -7,10 +7,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
-internal fun CreateAndUpdateNoteRoute(
+internal fun CreateAndUpdateTodoRoute(
     modifier: Modifier = Modifier,
     viewModel: CreateAndUpdateTodoViewModel = hiltViewModel(),
-    topBarTitle: String?,
+    topBarTitle: Int?,
     navigateToHomeScreen: () -> Unit
 ) {
 

@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.iarosch.simpletodoapp.R
 import com.iarosch.simpletodoapp.core.ui_kit.BasicFilledButtonToDo
 import com.iarosch.simpletodoapp.core.ui_kit.ToDoTopBar
 import com.iarosch.simpletodoapp.core.ui_kit.TodoTextField
@@ -25,7 +26,7 @@ import com.iarosch.simpletodoapp.core.ui_kit.TodoTextField
 internal fun CreateAndUpdateNoteScreen(
     modifier: Modifier = Modifier,
     uiState: CreateAndUpdateTodoUiState,
-    topBarTitle: String?,
+    topBarTitle: Int?,
     onSaveButtonClick: () -> Unit,
     navigateToHomeScreen: () -> Unit,
     onTitleChanged: (String) -> Unit,
@@ -35,7 +36,7 @@ internal fun CreateAndUpdateNoteScreen(
         modifier = modifier
             .fillMaxSize()
             .imePadding(),
-        topBar = { ToDoTopBar(title = topBarTitle!!) }
+        topBar = { ToDoTopBar(title = stringResource(topBarTitle!!)) }
     ) { paddingValues ->
         Box(
             modifier = Modifier
@@ -78,7 +79,7 @@ private fun Content(
                 .width(300.dp)
                 .padding(top = 40.dp),
             text = title,
-            placeHolderText = "Title",
+            placeHolderText = stringResource(id = R.string.title_text_field_placeholder),
             singleLine = true,
             onValueChange = onTitleChanged
         )
@@ -90,7 +91,7 @@ private fun Content(
                 .width(300.dp)
                 .height(400.dp),
             text = description,
-            placeHolderText = "Description",
+            placeHolderText = stringResource(id = R.string.create_todo_description),
             onValueChange = onDescriptionChanged
         )
 
@@ -104,7 +105,7 @@ private fun Content(
             onClick = {
                 if (title.isEmpty()) {
                     Toast.makeText(
-                        context, "Please fill out the Title field", Toast.LENGTH_LONG
+                        context, context.getText(R.string.please_fill_out_the_title_field), Toast.LENGTH_LONG
                     ).show()
                     return@BasicFilledButtonToDo
                 }
