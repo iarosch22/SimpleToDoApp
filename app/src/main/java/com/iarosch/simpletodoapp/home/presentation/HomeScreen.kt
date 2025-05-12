@@ -1,7 +1,6 @@
 package com.iarosch.simpletodoapp.home.presentation
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.content.MediaType.Companion.Text
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -29,9 +28,9 @@ import com.iarosch.simpletodoapp.core.ui_kit.TodoItem
 internal fun HomeScreen(
     modifier: Modifier = Modifier,
     uiState: HomeScreenUiState,
-    onCreateNoteFloatingActionButtonClick: () -> Unit,
-    onDeleteNoteButtonClick: (Todo) -> Unit,
-    onNoteClick: (String) -> Unit
+    onCreateTodoFloatingActionButtonClick: () -> Unit,
+    onDeleteTodoButtonClick: (Todo) -> Unit,
+    onTodoClick: (String) -> Unit
 ) {
 
     Scaffold(
@@ -44,7 +43,7 @@ internal fun HomeScreen(
         },
         floatingActionButton = {
             CreateTodoFloatingActionButton {
-                onCreateNoteFloatingActionButtonClick()
+                onCreateTodoFloatingActionButtonClick()
             }
         }
     ) { paddingValues ->
@@ -60,8 +59,8 @@ internal fun HomeScreen(
 
                 is HomeScreenUiState.Content -> HomeScreenContent(
                     todoList = uiState.todoList,
-                    onDeleteTodoButtonClick = onDeleteNoteButtonClick,
-                    onTodoClick = onNoteClick
+                    onDeleteTodoButtonClick = onDeleteTodoButtonClick,
+                    onTodoClick = onTodoClick
                 )
             }
         }
