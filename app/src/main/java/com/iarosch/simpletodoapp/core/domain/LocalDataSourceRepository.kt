@@ -5,14 +5,14 @@ import kotlinx.coroutines.flow.Flow
 
 interface LocalDataSourceRepository {
 
-    fun getAllNotesFlow(): Flow<List<Todo>>
+    fun getAllTodoFlow(): Flow<List<Todo>>
 
-    fun getNoteByIdFlow(id: Int): Flow<Todo>
+    fun getTodoByIdFlow(id: Int): Flow<Todo>
 
-    suspend fun addNote(note: Todo)
+    suspend fun addTodo(note: Todo)
 
-    suspend fun updateNote(note: Todo)
+    suspend fun updateTodo(note: Todo)
 
-    suspend fun deleteNote(note: Todo)
+    suspend fun deleteTodo(note: Todo)
 
 }

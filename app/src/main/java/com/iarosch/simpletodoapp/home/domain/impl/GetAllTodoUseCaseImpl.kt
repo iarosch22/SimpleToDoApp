@@ -8,5 +8,5 @@ class GetAllTodoUseCaseImpl @Inject constructor(
     private val localDataSourceRepository: LocalDataSourceRepository
 ): GetAllTodoUseCase {
 
-    override operator fun invoke() = localDataSourceRepository.getAllNotesFlow()
+    override operator fun invoke() = localDataSourceRepository.getAllTodoFlow()
 }
