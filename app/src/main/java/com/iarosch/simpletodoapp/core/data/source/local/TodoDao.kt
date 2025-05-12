@@ -11,12 +11,16 @@ interface TodoDao {
 
     @Query("SELECT * FROM todoEntity")
     fun getAllTodo() : Flow<List<TodoEntity>>
+
     @Insert
     fun insertTodo(todo: TodoEntity)
+
     @Update
     fun updateTodo(todo: TodoEntity)
+
     @Query("SELECT * FROM todoEntity WHERE id=:id")
     fun getTodoById(id: Int) : Flow<TodoEntity>
+
     @Delete
     fun delete(todo: TodoEntity)
 
