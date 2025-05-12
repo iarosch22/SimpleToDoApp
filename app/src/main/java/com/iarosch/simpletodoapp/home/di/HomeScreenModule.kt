@@ -20,6 +20,6 @@ abstract class HomeScreenModule {
 
     @Binds
     abstract fun bindGetAllTodosUseCase(
-        getAllNotesUseCaseImpl: GetAllTodoUseCaseImpl
+        getAllTodoUseCaseImpl: GetAllTodoUseCaseImpl
     ) : GetAllTodoUseCase
 }
